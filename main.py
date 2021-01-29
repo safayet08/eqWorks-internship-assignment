@@ -3,14 +3,13 @@ from InputParser import *
 from CoordinateCompress import *
 
 # Since DAGs don't have cycles, we don't need to keep a visited array to check for cycles
-def depthFirstSearch(graph, hack, currentTask, goalTask, topologicalSort):
-    topologicalSort.append(currentTask)
-
-    # Stop the execution when goal is achieved
-    if currentTask == goalTask: return
-
+def depthFirstSearch(graph, hack, visited, currentTask, topologicalSort):
+    visited[currentTask] = 1
     for nextTask in graph.adjList[currentTask]:
-        depthFirstSearch(graph, hack, nextTask, goalTask, topologicalSort)
+        if visited[nextTask] == 0:
+            depthFirstSearch(graph, hack, visited, nextTask, topologicalSort)
+
+    topologicalSort.append(currentTask)
     return
 
 '''
@@ -44,16 +43,18 @@ if __name__ == '__main__':
 
     graph = DAG()
     for edge in relations:
+        # Creating the recerse graph with reverse edges
         graph.addEdge(edge[1], edge[0], hack)
     graph.printGraph(hack)
 
     # Starting the DFS with the start-task
     topologicalSort = []
-    depthFirstSearch(graph, hack, goalTask[1], startTask[1], topologicalSort)
-
-    list.reverse(topologicalSort)
+    visited = [0 for x in range(hack.taskCount)]
+    depthFirstSearch(graph, hack, visited, goalTask[1], topologicalSort)
 
     topologicalSort = [hack.getRealIDfromMappedID(x) for x in topologicalSort]
 
     # The final topological ordering
-    print(topologicalSort)
+    print("Final topological ordering: ", end = "")
+    for task in topologicalSort:
+        print(task, end = " ")
