@@ -2,6 +2,8 @@
     
 Since there is no constraint on the ID of the tasks, I am assuming - they can be very large. To reduce the memory complexity of the graph (Which I will store as adjacency List), I'll use coordinate-compression technique to reduce the memory complexity of the graph to O(Number to relations)
 
+main.py file contains the solution steps.
+
 The given graph is: 
 
 ![Alt text](forwardGraph.PNG?raw=true "Title")
