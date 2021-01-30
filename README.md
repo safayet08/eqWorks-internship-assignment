@@ -1,8 +1,6 @@
 # Problem 4B: Pipeline Dependency
 
-===
-
-Problem description for data role: [`ws-data-spark`](https://github.com/EQWorks/ws-data-spark)
+Problem Description: [`ws-data-spark`](https://github.com/EQWorks/ws-data-spark)
 ===
 
 ### Repository Structure
