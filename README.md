@@ -39,3 +39,5 @@ Since it's a DAG, there's no cycle in the graph. I have generated a topological 
 ![Alt text](reverseGraph.PNG?raw=true "Title")
 
 Final topological ordering for the given task: `41 112 39 100 21 73 20 97 94 56 102 36 `
+
+(If you run the `main.py` file in this project, you'll get this ordering)
