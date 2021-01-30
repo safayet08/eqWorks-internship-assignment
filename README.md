@@ -24,6 +24,10 @@ If we take the **reverse graph** and start traversing from the `goal task`, we c
 
 The problem now boils down to *finding a topological sort ordering* in the reverse graph strating from the `goal node`. 
 
+### **Time Complexity**
+
+Since we only need to perform one Depth Fist Search/Bredth First Search, the overall time complexity will be *O(n)*, where n = number of tasks. As sorting the tasks according to their ID isn't necessary, I have avoided the *nlog(n)* term by avoiding the sorting while performing co-ordinate compression.
+
 ## Sample Analysis of the test-case
 
 The given graph is: 
