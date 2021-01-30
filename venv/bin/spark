@@ -1,0 +1,3 @@
+#!/Users/Safayet/Documents/GitHub/ws-data-spark/venv/bin/python
+from spark import spark_admin
+spark_admin.main()
