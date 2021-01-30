@@ -1,52 +1,42 @@
-import math
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 29 13:11:56 2021
 
-def distance(origin, destination):
-    """
-    Calculate the Haversine distance.
-    Parameters
-    ----------
-    origin : tuple of float (lat, long)
-    destination : tuple of float (lat, long)
+@author: safayet08
+"""
 
-    Returns
-    -------
-    distance_in_km : float
-    """
+import pandas as pd
+import numpy as np
+from helperFunction import distance
+
+requestLogs = pd.read_csv('../Results/Cleanup/part-00000-d5ab735a-66f9-4928-bf38-1cb5418e33ee-c000.csv', 
+                          header = None, index_col = 1)
+poiList = pd.read_csv('../data/POIList.csv', index_col = 0)
+
+requestLogs = requestLogs.reset_index()
+
+columns = ['TimeSt', '_ID', 'Country', 'Province', 'City', 'Latitude', 'Longitude']
+
+requestLogs.columns = columns
+
+
+poi_Longitude_dict = dict()
+poi_Latitude_dict = dict()
+for idx in range(len(requestLogs)):
+    origin = (float(requestLogs.iloc[idx]['Latitude']), float(requestLogs.iloc[idx]['Longitude']))
     
-    print(origin)
-    print(destination)
+    minimumDistance, resultIndex = 10e50, -1
+    for poiIndex in range(len(poiList)):
+        destination = (float(poiList.iloc[poiIndex]['Latitude']), float(poiList.iloc[poiIndex]['Longitude']))
+        D = distance(origin, destination)
+        if minimumDistance >= D:
+            minimumDistance = D
+            resultIndex = poiIndex  
+    poi_Latitude_dict.update({idx : poiList.iloc[resultIndex]['Latitude']})
+    poi_Longitude_dict.update({idx : poiList.iloc[resultIndex]['Longitude']})
 
-    lat1, lon1 = origin
-    lat2, lon2 = destination
-    radius = 6371  # km
+requestLogs['POI_Latitude'] = poi_Latitude_dict.values()
+requestLogs['POI_Longitude'] = poi_Longitude_dict.values()
 
-    dlat = math.radians(lat2 - lat1)
-    dlon = math.radians(lon2 - lon1)
-    a = (math.sin(dlat / 2) * math.sin(dlat / 2) + math.cos(math.radians(lat1)) 
-         * math.cos(math.radians(lat2)) * math.sin(dlon / 2) * math.sin(dlon / 2))
-    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-    d = radius * c
-
-    return d
-
-
-
-from pyspark.sql import SparkSession, types
-from pyspark.sql.functions import *
-
-spark = SparkSession.builder.appName('2. Label') .getOrCreate()
-
-requestLogs = spark.read.csv('data/DataSample.csv', header = True)
-poiList = spark.read.csv('data/POIList.csv', header = True)
-
-poi_latitude = []
-poi_longitude = []
-
-for row in poiList.rdd.collect():
-    poi_latitude.append(float(row.Latitude))
-    poi_longitude.append(float(row.Longitude))
-    
-# Distance function works perfect
-print(distance((poi_latitude[0], poi_longitude[0]), 
-               (poi_latitude[3], poi_longitude[3])))
-
+requestLogs.to_csv('../Results/Label/POI_Assignment.csv', encoding='utf-8', index = False)
