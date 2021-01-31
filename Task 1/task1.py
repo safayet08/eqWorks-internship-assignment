@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 28 15:17:51 2021
+
+@author: safayet08
+"""
+
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName('1. Cleanup') .getOrCreate()
