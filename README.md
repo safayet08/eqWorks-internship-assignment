@@ -1,23 +1,25 @@
 ## Problemset : [ws-data-role](https://gist.github.com/woozyking/f1d50e1fe1b3bf52e3748bc280cf941f)
 
-## Solution
+## Build Instructions
 
-0. Make sure Docker is installed properly and `docker-compose` is ready to use
-1. Run `$ docker-compose up -d` under the `data-mr` directory
-2. Check Spark UI at `http://localhost:8080` and you should see 1 master and 1 worker
-3. Run `$ docker exec -it datamr_master_1 /bin/bash` to get into the container shell, and start utilizing Spark commands such as `# spark-shell`, `# pyspark` or `# spark-submit`. You may want to replace `datamr_master_1` with actual container name that's spawned by the `docker-compose` process
+Please navigate to the directories assigned for each task. Each of the directories contain the results in the respective REAMME.md file. All the results altogether can also be found at [Results](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Results).
 
-![demo.gif](https://user-images.githubusercontent.com/2837532/27649289-4fdffd52-5bff-11e7-9236-0a1d063461cb.gif)
+#### Task 1
 
-## Notes on working through the problems
+Plase go to [Task 1](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%201) directory. `task1.py` file contains the solution.
 
-If you're not already familiar with [Apache Spark](http://spark.apache.org/), you'll need to go through its documentation for available APIs. The version that comes with the Docker Spark setup depends on https://github.com/gettyimages/docker-spark.
+#### Task 2
 
-For jobs that rely on external dependencies and libraries, make sure they are properly packaged on submission.
+Plase go to [Task 2](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%202) directory. `task2.py` file contains the solution.
 
-On submission, we will need:
+#### Task 3
 
-1. Source code of the solution
-2. Build instructions for job packaging (unless your solution is a single `.py`), such as [Maven](https://maven.apache.org/) or [SBT](http://www.scala-sbt.org/) for Scala/Java, or `setup.py` for Python `.zip/.egg`
+Plase go to [Task 3](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%203) directory. `task3.py` file contains the solution.
 
-Make sure the jobs can be submitted (through `spark-submit` command) in the Spark Master container shell. There is a `data` directory provided that maps between the Spark Master container and your host system, which is accessible as `/tmp/data` within the Docker container -- this is where you want to place both your jobs and work sample data, the latter is already included.
+#### Task 4a
+
+Plase go to [Task 4A](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%204A) directory. `task4a.py` file contains the solution.
+
+#### Task 4b
+
+Plase go to [Task 4B](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%204B) directory. `main.py` file contains the solution.
