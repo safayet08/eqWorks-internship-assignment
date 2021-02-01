@@ -23,6 +23,7 @@ requestLogs.columns = columns
 
 poi_Longitude_dict = dict()
 poi_Latitude_dict = dict()
+poi_number_dcit = dict()
 for idx in range(len(requestLogs)):
     origin = (float(requestLogs.iloc[idx]['Latitude']), float(requestLogs.iloc[idx]['Longitude']))
     
@@ -33,9 +34,12 @@ for idx in range(len(requestLogs)):
         if minimumDistance >= D:
             minimumDistance = D
             resultIndex = poiIndex  
+            
+    poi_number_dcit.update({idx: resultIndex})
     poi_Latitude_dict.update({idx : poiList.iloc[resultIndex]['Latitude']})
     poi_Longitude_dict.update({idx : poiList.iloc[resultIndex]['Longitude']})
 
+requestLogs['POI_Number'] = poi_number_dcit.values()
 requestLogs['POI_Latitude'] = poi_Latitude_dict.values()
 requestLogs['POI_Longitude'] = poi_Longitude_dict.values()
 
