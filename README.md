@@ -8,6 +8,8 @@ Please navigate to the directories assigned for each task. Each of the directori
 
 Plase go to [Task 1](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%201) directory. `task1.py` file contains the solution. Or run `$ python Task\ 1/task1.py`
 
+**Used Module:** `Spark SQL`
+
 
 #### Task 2
 
