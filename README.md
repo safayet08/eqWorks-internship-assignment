@@ -2,7 +2,7 @@
 
 ## Build Instructions
 
-Please navigate to the directories assigned for each task. Each of the directories contain the results in the respective REAMME.md file. 
+Please navigate to the directories assigned for each task. Each of the directories contain the results in the respective `README.md` file. 
 
 #### Task 1
 
