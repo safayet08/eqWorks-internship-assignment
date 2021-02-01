@@ -2,7 +2,7 @@
 
 ## Build Instructions
 
-Please navigate to the directories assigned for each task. Each of the directories contain the results in the respective REAMME.md file. All the results altogether can also be found at [Results](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Results).
+Please navigate to the directories assigned for each task. Each of the directories contain the results in the respective REAMME.md file. 
 
 #### Task 1
 
@@ -23,3 +23,8 @@ Plase go to [Task 4A](https://github.com/safayet08/eqWorks-internship-assignment
 #### Task 4b
 
 Plase go to [Task 4B](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%204B) directory. `main.py` file contains the solution.
+
+<br />
+<br />
+
+All the results altogether can also be found at [Results](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Results) directory.
