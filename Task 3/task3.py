@@ -54,7 +54,7 @@ ax.set_ylim(math.floor(mapBBox[2]), math.ceil(mapBBox[3]))
 colors = ['blue', 'lime', 'green', ]
 colorIdx = -1
 
-for i in range(poi_numbers + 1):
+for i in range(poi_numbers + 2):
     currentPOI = requestLogs[requestLogs['POI_Number'] == i] 
     if len(currentPOI) > 0: 
         colorIdx = colorIdx + 1
@@ -64,7 +64,8 @@ for i in range(poi_numbers + 1):
                    zorder = 1, alpha = 1, c = 'r', s = 25)
         
         average = currentPOI['Origin_to_POI'].mean()
-        sd_deviation = currentPOI['Origin_to_POI'].std()      
+        sd_deviation = currentPOI['Origin_to_POI'].std()  
+        print('{},  {}'.format(poiList.iloc[i]['Latitude'], poiList.iloc[i]['Longitude']))
         print('Average distance from reqestOrigin to POI : {}'.format(average))
         print('Standard Deviation of reqestOrigin from Origin to POI : {}'.format(sd_deviation))
         
@@ -82,6 +83,7 @@ for i in range(poi_numbers + 1):
         totalRequests = len(currentPOI)
         requestPerArea = totalRequests / area
         print("Radius of the the POI: {}".format(Radius))
+        print("Total Requests: {}".format(len(currentPOI)))
         print("Request/Area : {}".format(requestPerArea))
         print("\n\n")
         
