@@ -26,7 +26,7 @@ Plase go to [Task 4A](https://github.com/safayet08/eqWorks-internship-assignment
 
 ### Task 4b
 
-Plase go to [Task 4B](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%204B) directory. `main.py` file contains the solution. 
+Plase go to [Task 4B](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Task%204B) directory. `main.py` file contains the solution. Or run `$ python Task\ 4B/main.py`
 
 <br />
 <br />
