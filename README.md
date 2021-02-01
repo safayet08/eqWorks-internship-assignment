@@ -1,10 +1,6 @@
-## Environment
+## Problemset : [ws-data-role](https://gist.github.com/woozyking/f1d50e1fe1b3bf52e3748bc280cf941f)
 
-Unless you already have a working [Apache Spark](http://spark.apache.org/) cluster, you will need to have [Docker](https://docs.docker.com/) for simple environment setup.
-
-The provided `docker-compose.yml` and Spark configurations in `conf` directory are cloned from <https://github.com/gettyimages/docker-spark>.
-
-## Setup
+## Solution
 
 0. Make sure Docker is installed properly and `docker-compose` is ready to use
 1. Run `$ docker-compose up -d` under the `data-mr` directory
