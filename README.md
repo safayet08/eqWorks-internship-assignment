@@ -27,4 +27,4 @@ Plase go to [Task 4B](https://github.com/safayet08/eqWorks-internship-assignment
 <br />
 <br />
 
-All the results altogether can also be found at [Results](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Results) directory.
+All the results altogether can also be found at [Results](https://github.com/safayet08/eqWorks-internship-assignment/tree/main/Results) directory. (No Code)
